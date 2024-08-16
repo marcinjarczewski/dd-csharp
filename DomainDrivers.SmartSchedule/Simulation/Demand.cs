@@ -15,6 +15,11 @@ public record Demand(Capability Capability, TimeSlot Slot) : IWeightDimension<Av
         return IsSatisfiedBy((AvailableResourceCapability)capacityDimension);
     }
 
+    public TimeSlot? GetTimeSlot()
+    {
+        return Slot;
+    }
+
     public bool IsSatisfiedBy(AvailableResourceCapability availableCapability)
     {
         return availableCapability.Performs(Capability) &&

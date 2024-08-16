@@ -23,6 +23,11 @@ public record CapabilityWeightDimension(string Name, string Type) : IWeightDimen
     {
         return IsSatisfiedBy((CapabilityCapacityDimension)capacityDimension);
     }
+
+    public TimeSlot? GetTimeSlot()
+    {
+        return new TimeSlot(DateTime.MinValue, DateTime.MaxValue);
+    }
 }
 
 public record CapabilityTimedCapacityDimension(Guid Uuid, string Id, string CapacityName, string CapacityType,
@@ -47,5 +52,10 @@ public record CapabilityTimedWeightDimension
     public bool IsSatisfiedBy(ICapacityDimension capacityTimedDimension)
     {
         return IsSatisfiedBy((CapabilityTimedCapacityDimension)capacityTimedDimension);
+    }
+
+    public TimeSlot? GetTimeSlot()
+    {
+        return TimeSlot;
     }
 }

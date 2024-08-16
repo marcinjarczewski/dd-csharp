@@ -30,6 +30,12 @@ public record TimeSlot(DateTime From, DateTime To)
         return !(From > other.To) && !(To < other.From);
     }
 
+    public bool OverlapsEdgesWith(TimeSlot other)
+    {
+        return !(From >= other.To) && !(To <= other.From);
+    }
+
+
     public bool Within(TimeSlot other)
     {
         return From >= other.From && To <= other.To;
