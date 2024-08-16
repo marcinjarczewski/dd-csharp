@@ -11,7 +11,7 @@ public class OptimizationFacade
     private const int SurvivePerGeneration = 20;
 
     private const int MutationChance = 10;
-    private const int PercentChanceToSkipProject = 0;
+    private const int PercentChanceToSkipProject = 5;
     private readonly Random _random = new();
 
     #endregion
