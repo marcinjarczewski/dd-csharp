@@ -110,8 +110,8 @@ public class OptimizationFacade
             }
         }
 
-        //krzy¿ujemy poprzez branie w pierwszej kolejnoœci projektów, które s¹ zawarte w obu kandydatach, nastêpnie w jednym z nich,
-        // a na koniec dodajemy projekty, których nie ma w ¿adnym kandydacie
+		// KrzyÅ¼ujemy poprzez branie w pierwszej kolejnoÅ›ci projektÃ³w, ktÃ³re sÄ… zawarte w obu kandydatach.
+		// NastÄ™pnie w jednym z nich, a na koniec dodajemy projekty, ktÃ³rych nie ma w Å¼adnym kandydacie.
         var orderedItems = bothIncluded;
         orderedItems.AddRange(oneIncluded.OrderBy(_ => Guid.NewGuid()));
         orderedItems.AddRange(noIncluded.OrderBy(x => x.Value));
@@ -216,10 +216,10 @@ public class OptimizationFacade
 
     private class CapacityDimensionWithUsedTimes(ICapacityDimension capacityDimension)
     {
-        //Aby obs³u¿yæ wiele umiejêtnoœci per zasób powinno byæ ResourceId
+        // Aby obsÅ‚uÅ¼yÄ‡ wiele umiejÄ™tnoÅ›ci per zasÃ³b, powinno byÄ‡ ResourceId
         public ICapacityDimension CapacityDimension { get; set; } = capacityDimension;
 
-        //Aby obs³u¿yæ wiele umiejêtnoœci per zasób powinniœmy u¿ywaæ kalendarzy dostêpnoœci zamiast trzymaæ u¿yte TimeSloty
+		// Aby obsÅ‚uÅ¼yÄ‡ wiele umiejÄ™tnoÅ›ci per zasÃ³b, powinniÅ›my uÅ¼ywaÄ‡ kalendarzy dostÄ™pnoÅ›ci zamiast trzymaÄ‡ uÅ¼yte TimeSloty
         public List<TimeSlot> UsedTimeSlots { get; set; } = new List<TimeSlot>();
 
         public Guid Guid { get; set; } = Guid.NewGuid();
